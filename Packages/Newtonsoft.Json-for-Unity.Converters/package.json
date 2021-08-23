@@ -1,5 +1,5 @@
 {
-  "name": "jillejr.newtonsoft.json-for-unity.converters",
+  "name": "com.defcon1.newtonsoft.json-for-unity.converters",
   "displayName": "Json.NET Converters of Unity types",
   "version": "12.0.1-preview.1",
   "unity": "2018.1",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters.git",
+    "url": "ssh://git@github.com:Defcon1VR/Newtonsoft.Json-for-Unity.Converters.git",
     "directory": "Packages/Newtonsoft.Json-for-Unity.Converters"
   },
   "keywords": [
