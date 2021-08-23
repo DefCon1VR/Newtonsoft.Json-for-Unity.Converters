@@ -27,6 +27,5 @@
             npm publish
           if: steps.check-package.outputs.changed == 'true'
           working-directory: ./Packages/Newtonsoft.Json-for-Unity.Converters
-            token: ${{ secrets.GITHUB_TOKEN }}
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
