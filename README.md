@@ -8,8 +8,7 @@
 This package contains converters to and from common Unity types. Types such as
 **Vector2, Vector3, Matrix4x4, Quaternions, Color, even ScriptableObject,**
 *and many, many more.*
-(See the [full compatibility table of all +50 supported Unity types][
-doc-compatability-table])
+(See the [full compatibility table of all +50 supported Unity types][doc-compatability-table])
 
 ## Dependencies
 
@@ -22,23 +21,23 @@ many Newtonsoft.Json forks and variants out there in the Unity eco-system.
 
 This package can be combined with any of the following:
 
+- Unity's fork of my fork Newtonsoft.Json package:
+  [`com.unity.nuget.newtonsoft-json@3.0.1`](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.0/manual/index.html) 
+  *(recommended)*
+
 - My own fork of JamesNK's original Newtonsoft.Json repo:
   [jilleJr/Newtonsoft.Json-for-Unity](https://github.com/jilleJr/Newtonsoft.Json-for-Unity)
-  *(recommended)*
 
 - SaladLab's fork: [SaladLab/Json.Net.Unity3D](https://github.com/SaladLab/Json.Net.Unity3D)
 
 - ParentElement's Assets Store package: <https://www.parentelement.com/assets/json_net_unity>
-
-- Unity's internal Newtonsoft.Json package:
-  [`com.unity.nuget.newtonsoft-json@2.0.1-preview.1`](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@2.0/manual/index.html)
   
 - *Any other source, such as having the `Newtonsoft.Json.dll` files inside your
   Assets folder, as long as it declares the base `Newtonsoft.Json` types.*
 
-Personally I recommend my own package as it's the most up-to-date fork, though
-if you're stuck using any of the other alternatives, then adding this package
-should not be with any major hinders.
+Since v3.0.1 of Unity's fork (of my fork) of Newtonsoft.Json, they are now
+promising a maintained version with official support by Unity's own dev
+team. See installation instructions here: [Install official UPM package](https://github.com/jilleJr/Newtonsoft.Json-for-Unity/wiki/Install-official-via-UPM)
 
 ### Newtonsoft.Json versions
 
@@ -114,7 +113,7 @@ The converters in this package takes care of these issues, as well as many more.
 
 ### Sample error without this package
 
-Given this peice of code:
+Given this piece of code:
 
 ```csharp
 using UnityEngine;
@@ -259,7 +258,7 @@ Please see the [CHANGELOG.md][changelog.md] file inside this package.
 
 This package is licensed under The MIT License (MIT)
 
-Copyright (c) 2019 Kalle Jillheden (jilleJr)  
+Copyright (c) 2019 Kalle Fagerberg (jilleJr)  
 <https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters>
 
 See full copyrights in [LICENSE.md][license.md] inside repository

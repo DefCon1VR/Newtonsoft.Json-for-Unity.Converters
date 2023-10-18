@@ -7,6 +7,8 @@ https://beautifuldingbats.com/superscript-generator/
 
 | Module         | Type                                                            | Can read        | Can write       | Custom converter |
 | -------------- | --------------------------------------------------------------- | --------------- | --------------- | ---------------- |
+| Addressables   | *UnityEngine.AddressableAssets*.**AssetReference**              | ✔[⁽⁷⁾](#note-7) | ✔[⁽⁷⁾](#note-7) | ✔                |
+| Addressables   | *UnityEngine.AddressableAssets*.**AssetReferenceT&lt;T&gt;**    | ✔[⁽⁷⁾](#note-7) | ✔[⁽⁷⁾](#note-7) | ✔                |
 | AI/NavMesh     | *UnityEngine.<i></i>AI*.**NavMeshDataInstance**                 | ❌[⁽²⁾](#note-2) | ❓[⁽³⁾](#note-3) | ❌[⁽²⁾](#note-2)  |
 | AI/NavMesh     | *UnityEngine.<i></i>AI*.**NavMeshHit**                          | ✔               | ✔               | ✖[⁽¹⁾](#note-1)  |
 | AI/NavMesh     | *UnityEngine.<i></i>AI*.**NavMeshLinkData**                     | ✔               | ✔               | ✖[⁽¹⁾](#note-1)  |
@@ -40,6 +42,7 @@ https://beautifuldingbats.com/superscript-generator/
 | Math           | *UnityEngine*.**Vector3**                                       | ✔               | ✔               | ✔                |
 | Math           | *UnityEngine*.**Vector3Int**                                    | ✔               | ✔               | ✔                |
 | Math           | *UnityEngine*.**Vector4**                                       | ✔               | ✔               | ✔                |
+| Math           | *UnityEngine*.**Matrix4x4**                                     | ✔               | ✔               | ✔                |
 | NativeArray    | *Unity.Collections*.**NativeArray&lt;T&gt;**                    | ❌[⁽⁴⁾](#note-4) | ✔               | ✔                |
 | NativeArray    | *Unity.Collections*.**NativeSlice&lt;T&gt;**                    | ❌[⁽⁴⁾](#note-4) | ✔               | ✔                |
 | ParticleSystem | *UnityEngine.ParticleSystemJobs*.**ParticleSystemJobData**      | ❌[⁽⁴⁾](#note-4) | ❔[⁽⁵⁾](#note-5) | ❌[⁽⁴⁾](#note-4)  |
@@ -95,7 +98,7 @@ https://beautifuldingbats.com/superscript-generator/
 
 4. ❌<a name="note-4"></a> Type directly or indirectly contains reference to
   the NativeArray or NativeSlice types. Deserializing these types will cause
-  imminent memory leaks and so deserializing (writing JSON) using these types
+  imminent memory leaks and so deserializing (reading JSON) using these types
   are therefore highly discouraged.
 
 5. ❔<a name="note-5"></a> Serializing this type has not been tested nor
@@ -104,6 +107,14 @@ https://beautifuldingbats.com/superscript-generator/
 6. ❌<a name="note-6"></a> Type contains fields marked as `readonly` and
   therefore has been left out. Possible to solve by using reflection tricks
   but this has been down prioritized.
+
+7. ✔<a name="note-7"></a> Support for Addressables package, which was added in
+  v1.4.0, is only automatically included if your Unity project has imported the
+  `com.unity.addressable` package. This automatic inclusion  relies on
+  AssemblyDefinition version defines, which was introduced in Unity 2019.1.x.
+  To enable the `AssetReferenceConverter` in earlier versions of Unity, please
+  add `HAVE_MODULE_ADDRESSABLES` to your project's "Scripting Define Symbols"
+  found in the "Project Settings" -> "Player" -> "Other Settings" panel.
 
 ## Legend
 

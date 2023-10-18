@@ -1,5 +1,51 @@
 # Unity Converters for Newtonsoft.Json changelog
 
+## 1.5.1 (2023-04-19)
+
+- Fixed converters being stripped when Managed Stripping Level is set to
+  anything higher than "minimal", by adding `[Preserve]` attribute
+  to the entire assemblies. ([#73](https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters/pull/73))
+
+## 1.5.0 (2022-08-16)
+
+- Added support for `UnityEngine.AddressableAssets.AssetReferenceT<T>`, in
+  addition to the existing support for the non-generic `AssetReference` version
+  introduced in v1.4.0.
+
+  Thanks [@kyverr](https://github.com/kyverr) for the implementation ([#71](https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters/pull/71))
+
+## 1.4.0 (2022-02-05)
+
+- Added support for `UnityEngine.AddressableAssets.AssetReference`.
+  The new `AssetReferenceConverter` is only included in the build if your
+  project contains the `com.unity.addressables` package. 
+  ([#67](https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters/pull/67))
+
+  This automatic inclusion relies on AssemblyDefinition version defines, which
+  was introduced in Unity 2019.1.x. To enable the `AssetReferenceConverter` in
+  earlier versions of Unity, please add `HAVE_MODULE_ADDRESSABLES` to your
+  project's "Scripting Define Symbols" found in the
+  "Project Settings" -> "Player" -> "Other Settings" panel.
+
+## 1.3.0 (2021-10-21)
+
+- Changed the following modules to be automatically excluded from compilation
+  if they are not used in the project:
+
+  - `com.unity.modules.ai` via new define `HAVE_MODULE_AI`
+  - `com.unity.modules.physics` via new define `HAVE_MODULE_PHYSICS`
+  - `com.unity.modules.physics2d` via new define `HAVE_MODULE_PHYSICS2D`
+
+  This is active starting with Unity 2019.1.x. The regarded modules are always
+  active in prior Unity versions.
+
+  Thanks [@SolidAlloy](https://github.com/SolidAlloy) for the implementation ([#60](https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters/pull/60))
+
+## 1.2.0 (2021-09-11)
+
+- Changed `UnityConverterInitializer` from `internal` to `public`.
+  ([#58](https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters/issues/58))
+
 ## 1.1.1 (2021-05-30)
 
 - Fixed Newtonsoft.Json converters (ex: `StringEnumConverter` &
